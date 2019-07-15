@@ -1,0 +1,25 @@
+{
+  "name": "ngx-img-cropper",
+  "version": "0.10.4",
+  "description": "Image cropping tool for Angular",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/web-dave/ngx-img-cropper.git"
+  },
+  "keywords": [
+    "Angular",
+    "image",
+    "cropper"
+  ],
+  "author": "David Muellerchen",
+  "license": "MIT",
+  "peerDependencies": {
+    "@angular/common": "^4.0.0",
+    "@angular/compiler": "^4.0.0",
+    "@angular/core": "^4.0.0"
+  },
+  "bugs": {
+    "url": "https://github.com/web-dave/ngx-img-cropper/issues"
+  },
+  "homepage": "https://github.com/web-dave/ngx-img-cropper#readme"
+}
