@@ -9,12 +9,12 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 import { Handle } from "./handle";
-var CornerMarker = /** @class */ (function (_super) {
-    __extends(CornerMarker, _super);
-    function CornerMarker(x, y, radius, cropperSettings) {
-        return _super.call(this, x, y, radius, cropperSettings) || this;
+export class CornerMarker extends Handle{
+    
+    constructor(x, y, radius, cropperSettings) {
+        super(this, x, y, radius, cropperSettings);
     }
-    CornerMarker.prototype.drawCornerBorder = function (ctx) {
+    drawCornerBorder(ctx) {
         var sideLength = 10;
         if (this.over || this.drag) {
             sideLength = 12;
@@ -56,7 +56,7 @@ var CornerMarker = /** @class */ (function (_super) {
                 "rgba(255,255,255,.7)";
         ctx.stroke();
     };
-    CornerMarker.prototype.drawCornerFill = function (ctx) {
+    drawCornerFill(ctx) {
         var sideLength = 10;
         if (this.over || this.drag) {
             sideLength = 12;
@@ -84,34 +84,32 @@ var CornerMarker = /** @class */ (function (_super) {
                 "rgba(255,255,255,.7)";
         ctx.fill();
     };
-    CornerMarker.prototype.moveX = function (x) {
+    moveX(x) {
         this.setPosition(x, this.position.y);
     };
-    CornerMarker.prototype.moveY = function (y) {
+    moveY(y) {
         this.setPosition(this.position.x, y);
     };
-    CornerMarker.prototype.move = function (x, y) {
+    move(x, y) {
         this.setPosition(x, y);
         this.verticalNeighbour.moveX(x);
         this.horizontalNeighbour.moveY(y);
     };
-    CornerMarker.prototype.addHorizontalNeighbour = function (neighbour) {
+    addHorizontalNeighbour(neighbour) {
         this.horizontalNeighbour = neighbour;
     };
-    CornerMarker.prototype.addVerticalNeighbour = function (neighbour) {
+    addVerticalNeighbour (neighbour) {
         this.verticalNeighbour = neighbour;
     };
-    CornerMarker.prototype.getHorizontalNeighbour = function () {
+    getHorizontalNeighbour() {
         return this.horizontalNeighbour;
     };
-    CornerMarker.prototype.getVerticalNeighbour = function () {
+    getVerticalNeighbour() {
         return this.verticalNeighbour;
     };
-    CornerMarker.prototype.draw = function (ctx) {
+    draw(ctx) {
         this.drawCornerFill(ctx);
         this.drawCornerBorder(ctx);
     };
-    return CornerMarker;
-}(Handle));
-export { CornerMarker };
+}
 //# sourceMappingURL=cornerMarker.js.map

@@ -14,9 +14,9 @@
   "author": "David Muellerchen",
   "license": "MIT",
   "peerDependencies": {
-    "@angular/common": "^4.0.0",
-    "@angular/compiler": "^4.0.0",
-    "@angular/core": "^4.0.0"
+    "@angular/common": ">=10.0.8",
+    "@angular/core": ">=10.0.8",
+    "@angular/compiler": ">=10.0.8"
   },
   "bugs": {
     "url": "https://github.com/web-dave/ngx-img-cropper/issues"

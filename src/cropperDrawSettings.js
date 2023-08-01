@@ -1,5 +1,5 @@
-var CropperDrawSettings = /** @class */ (function () {
-    function CropperDrawSettings(settings) {
+export class CropperDrawSettings{
+    constructor(settings) {
         this.lineDash = false;
         this.strokeWidth = 1;
         this.strokeColor = "rgba(255,255,255,1)";
@@ -21,7 +21,5 @@ var CropperDrawSettings = /** @class */ (function () {
                 settings.dragIconFillColor || this.dragIconFillColor;
         }
     }
-    return CropperDrawSettings;
-}());
-export { CropperDrawSettings };
+}
 //# sourceMappingURL=cropperDrawSettings.js.map

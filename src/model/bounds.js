@@ -1,6 +1,6 @@
 import { PointPool } from "./pointPool";
-var Bounds = /** @class */ (function () {
-    function Bounds(x, y, width, height) {
+export class Bounds {
+    constructor(x, y, width, height) {
         if (x === void 0) {
             x = 0;
         }
@@ -18,26 +18,16 @@ var Bounds = /** @class */ (function () {
         this.top = y;
         this.bottom = y + height;
     }
-    Object.defineProperty(Bounds.prototype, "width", {
-        get: function () {
+        get width () {
             return this.right - this.left;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(Bounds.prototype, "height", {
-        get: function () {
+        }
+        get height() {
             return this.bottom - this.top;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Bounds.prototype.getCentre = function () {
+        }
+    getCentre() {
         var w = this.width;
         var h = this.height;
         return PointPool.instance.borrow(this.left + w / 2, this.top + h / 2);
     };
-    return Bounds;
-}());
-export { Bounds };
+}
 //# sourceMappingURL=bounds.js.map

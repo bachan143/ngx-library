@@ -1,6 +1,6 @@
 import { CropperDrawSettings } from "./cropperDrawSettings";
-var CropperSettings = /** @class */ (function () {
-    function CropperSettings(settings) {
+export class CropperSettings {
+    constructor(settings) {
         this.canvasWidth = 300;
         this.canvasHeight = 300;
         this.dynamicSizing = false;
@@ -28,34 +28,26 @@ var CropperSettings = /** @class */ (function () {
             Object.assign(this, settings);
         }
     }
-    Object.defineProperty(CropperSettings.prototype, "rounded", {
-        get: function () {
+    
+        get rounded() {
             return this._rounded;
-        },
-        set: function (val) {
+        }
+        set rounded(val) {
             this._rounded = val;
             if (val) {
                 this._keepAspect = true;
             }
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(CropperSettings.prototype, "keepAspect", {
-        get: function () {
+        }
+    
+        get keepAspect() {
             return this._keepAspect;
-        },
-        set: function (val) {
+        }
+        set keepAspect(val) {
             this._keepAspect = val;
             if (this._rounded === true && this._keepAspect === false) {
                 console.error("Cannot set keep aspect to false on rounded cropper. Ellipsis not supported");
                 this._keepAspect = true;
             }
-        },
-        enumerable: true,
-        configurable: true
-    });
-    return CropperSettings;
-}());
-export { CropperSettings };
+        }
+}
 //# sourceMappingURL=cropperSettings.js.map

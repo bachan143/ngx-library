@@ -1,7 +1,5 @@
-var ImageCropperModel = /** @class */ (function () {
-    function ImageCropperModel() {
-    }
-    return ImageCropperModel;
-}());
-export { ImageCropperModel };
+export class ImageCropperModel {
+    super();
+}
+
 //# sourceMappingURL=imageCropperModel.js.map

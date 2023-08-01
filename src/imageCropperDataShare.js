@@ -1,18 +1,19 @@
-var ImageCropperDataShare = /** @class */ (function () {
-    function ImageCropperDataShare() {
+export class ImageCropperDataShare{
+    constructor(){
+        this.share = {};
     }
-    ImageCropperDataShare.setPressed = function (canvas) {
+    setPressed(canvas) {
         this.pressed = canvas;
     };
-    ImageCropperDataShare.setReleased = function (canvas) {
+    setReleased (canvas) {
         if (canvas === this.pressed) {
             //  this.pressed = undefined;
         }
     };
-    ImageCropperDataShare.setOver = function (canvas) {
+    setOver(canvas) {
         this.over = canvas;
     };
-    ImageCropperDataShare.setStyle = function (canvas, style) {
+    setStyle(canvas, style) {
         if (this.pressed !== undefined) {
             if (this.pressed === canvas) {
                 // TODO: check this
@@ -26,8 +27,6 @@ var ImageCropperDataShare = /** @class */ (function () {
             }
         }
     };
-    ImageCropperDataShare.share = {};
-    return ImageCropperDataShare;
-}());
-export { ImageCropperDataShare };
+    
+}
 //# sourceMappingURL=imageCropperDataShare.js.map

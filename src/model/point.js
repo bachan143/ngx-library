@@ -1,31 +1,21 @@
-var Point = /** @class */ (function () {
-    function Point(x, y) {
+export class Point {
+    constructor(x, y) {
         if (x === void 0) { x = 0; }
         if (y === void 0) { y = 0; }
         this.x = x;
         this.y = y;
     }
-    Object.defineProperty(Point.prototype, "next", {
-        get: function () {
+        get next() {
             return this._next;
-        },
-        set: function (p) {
+        }
+        set next(p) {
             this._next = p;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(Point.prototype, "prev", {
-        get: function () {
+        }
+        get prev() {
             return this._prev;
-        },
-        set: function (p) {
+        }
+        set prev(p) {
             this._prev = p;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    return Point;
-}());
-export { Point };
+        }
+}
 //# sourceMappingURL=point.js.map

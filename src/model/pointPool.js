@@ -1,7 +1,6 @@
 import { Point } from "./point";
-var PointPool = /** @class */ (function () {
-    function PointPool(initialSize) {
-        PointPool._instance = this;
+export class PointPool{
+    constructor(initialSize=1) {
         var prev = (this.firstAvailable = new Point());
         for (var i = 1; i < initialSize; i++) {
             var p = new Point();
@@ -9,14 +8,10 @@ var PointPool = /** @class */ (function () {
             prev = p;
         }
     }
-    Object.defineProperty(PointPool, "instance", {
-        get: function () {
+        get instance() {
             return PointPool._instance;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    PointPool.prototype.borrow = function (x, y) {
+        }
+borrow (x, y) {
         if (this.firstAvailable == null) {
             throw "Pool exhausted";
         }
@@ -27,14 +22,12 @@ var PointPool = /** @class */ (function () {
         p.y = y;
         return p;
     };
-    PointPool.prototype.returnPoint = function (p) {
+    returnPoint(p) {
         this.borrowed--;
         p.x = 0;
         p.y = 0;
         p.next = this.firstAvailable;
         this.firstAvailable = p;
     };
-    return PointPool;
-}());
-export { PointPool };
+}
 //# sourceMappingURL=pointPool.js.map

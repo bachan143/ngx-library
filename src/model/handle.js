@@ -1,7 +1,7 @@
 import { Point } from "./point";
 import { CropperSettings } from "../cropperSettings";
-var Handle = /** @class */ (function () {
-    function Handle(x, y, radius, settings) {
+export class Handle{
+    constructor(x, y, radius, settings) {
         this.cropperSettings = new CropperSettings();
         this.over = false;
         this.drag = false;
@@ -10,34 +10,29 @@ var Handle = /** @class */ (function () {
         this.radius = radius;
         this.cropperSettings = settings;
     }
-    Handle.prototype.setDrag = function (value) {
+    setDrag (value) {
         this.drag = value;
         this.setOver(value);
     };
-    Handle.prototype.draw = function (ctx) {
+    draw(ctx) {
         // this should't be empty
     };
-    Handle.prototype.setOver = function (over) {
+    setOver(over) {
         this.over = over;
     };
-    Handle.prototype.touchInBounds = function (x, y) {
+    touchInBounds (x, y) {
         return (x > this.position.x - this.radius + this.offset.x &&
             x < this.position.x + this.radius + this.offset.x &&
             y > this.position.y - this.radius + this.offset.y &&
             y < this.position.y + this.radius + this.offset.y);
     };
-    Object.defineProperty(Handle.prototype, "position", {
-        get: function () {
+        get position() {
             return this._position;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Handle.prototype.setPosition = function (x, y) {
+        }
+    setPosition (x, y) {
         this._position.x = x;
         this._position.y = y;
     };
-    return Handle;
-}());
+}
 export { Handle };
 //# sourceMappingURL=handle.js.map

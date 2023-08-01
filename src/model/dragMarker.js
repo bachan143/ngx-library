@@ -10,17 +10,16 @@ var __extends = (this && this.__extends) || (function () {
 })();
 import { Handle } from "./handle";
 import { PointPool } from "./pointPool";
-var DragMarker = /** @class */ (function (_super) {
-    __extends(DragMarker, _super);
-    function DragMarker(x, y, radius, cropperSettings) {
-        var _this = _super.call(this, x, y, radius, cropperSettings) || this;
-        _this.iconPoints = [];
-        _this.scaledIconPoints = [];
-        _this.getDragIconPoints(_this.iconPoints, 1);
-        _this.getDragIconPoints(_this.scaledIconPoints, 1.2);
-        return _this;
+export class  DragMarker extends Handle{
+    constructor(x, y, radius, cropperSettings) {
+        super(this, x, y, radius, cropperSettings);
+        this.iconPoints = [];
+        this.scaledIconPoints = [];
+        this.getDragIconPoints(_this.iconPoints, 1);
+        this.getDragIconPoints(_this.scaledIconPoints, 1.2);
+        
     }
-    DragMarker.prototype.draw = function (ctx) {
+    draw(ctx) {
         if (this.over || this.drag) {
             this.drawIcon(ctx, this.scaledIconPoints);
         }
@@ -28,7 +27,7 @@ var DragMarker = /** @class */ (function (_super) {
             this.drawIcon(ctx, this.iconPoints);
         }
     };
-    DragMarker.prototype.getDragIconPoints = function (arr, scale) {
+    getDragIconPoints (arr, scale) {
         var maxLength = 17 * scale;
         var arrowWidth = 14 * scale;
         var arrowLength = 8 * scale;
@@ -58,7 +57,7 @@ var DragMarker = /** @class */ (function (_super) {
         arr.push(PointPool.instance.borrow(-maxLength + arrowLength, connectorThroat / 2));
         arr.push(PointPool.instance.borrow(-connectorThroat / 2, connectorThroat / 2));
     };
-    DragMarker.prototype.drawIcon = function (ctx, points) {
+    drawIcon(ctx, points) {
         if (this.cropperSettings.showCenterMarker) {
             ctx.beginPath();
             ctx.moveTo(points[0].x + this.position.x, points[0].y + this.position.y);
@@ -74,12 +73,11 @@ var DragMarker = /** @class */ (function (_super) {
             ctx.stroke();
         }
     };
-    DragMarker.prototype.recalculatePosition = function (bounds) {
+    recalculatePosition(bounds) {
         var c = bounds.getCentre();
         this.setPosition(c.x, c.y);
         PointPool.instance.returnPoint(c);
     };
-    return DragMarker;
-}(Handle));
-export { DragMarker };
+    
+}
 //# sourceMappingURL=dragMarker.js.map
