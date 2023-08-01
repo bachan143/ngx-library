@@ -1,5 +1,6 @@
 import * as ɵngcc0 from '@angular/core';
-import * as ɵngcc1 from './image-cropper.component';
+//import * as ɵngcc1 from './image-cropper.component';
+import * as ɵngcc1 from './imageCropperComponent';
 import * as ɵngcc2 from '@angular/common';
 export declare class ImageCropperModule {
     static ɵfac: ɵngcc0.ɵɵFactoryDeclaration<ImageCropperModule, never>;
